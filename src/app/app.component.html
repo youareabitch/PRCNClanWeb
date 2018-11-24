@@ -1,0 +1,18 @@
+<nz-spin [nzSpinning]="isSpinning" nzTip='Loading...'>
+<nz-layout class="layout">
+  <nz-header style="position:fixed; width:100%">
+    <div class="logo"></div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+      <li nz-menu-item [(nzSelected)]="isMemberManage" routerLink="MemberManage">戰隊成員維護</li>
+      <li nz-menu-item [nzSelected]="isBossManage">戰隊王維護</li>
+      <li nz-menu-item [nzSelected]="isAttackRecordManage">出刀記錄維護</li>
+    </ul>
+  </nz-header>
+  <nz-content style="padding:0 50px;margin-top:100px;">
+    <div style="background:#fff; padding: 24px; min-height: 380px;">
+      <router-outlet></router-outlet>
+    </div>
+  </nz-content>
+  <nz-footer style="text-align: center;">公主連結戰隊管理系統 ©2018 Implement By 葉少</nz-footer>
+</nz-layout>
+</nz-spin>

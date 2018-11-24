@@ -1,0 +1,23 @@
+<nz-breadcrumb style="margin:16px 0;">
+  <nz-breadcrumb-item><button nz-button nzType="default" routerLink="/MemberManage"><i class="anticon anticon-left"></i></button>成員基本資料</nz-breadcrumb-item>
+</nz-breadcrumb>
+
+  <nz-form-item>
+        <nz-form-label nzFor="ID">UID</nz-form-label>
+        <nz-form-control>
+              <input nz-input [(ngModel)]="member.ID" id="ID">
+        </nz-form-control>
+  </nz-form-item>        
+                
+  <nz-form-item>
+        <nz-form-label nzFor="Name">遊戲暱稱</nz-form-label>
+        <nz-form-control>
+              <input nz-input [(ngModel)]="member.Name" id="Name">
+        </nz-form-control>
+  </nz-form-item>  
+
+  <nz-form-item>
+        <nz-form-control>
+              <button nz-button nzType="primary" (click)="Save()" style="float: right;"><i class="anticon anticon-save"></i>儲存</button>
+        </nz-form-control>
+  </nz-form-item>
