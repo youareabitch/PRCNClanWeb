@@ -1,32 +1,29 @@
-<h1>戰隊成員維護</h1>
+<h1>戰隊王維護</h1>
 
-<button nz-button nzType="primary" routerLink="/MemberDetail"><i class="anticon anticon-plus-square"></i>新增</button>
+<button nz-button nzType="primary" routerLink="/BossDetail"><i class="anticon anticon-plus-square"></i>新增</button>
 <button nz-button [disabled]="!isCheckedRow" [nzType]="'danger'" (click)="delete()"><i nz-icon type="delete" theme="outline"></i>刪除</button>
 
 <nz-table
       #rowSelectionTable
       [nzData]="datas"
-      [nzPageSize]="30"
       (nzCurrentPageDataChange)="currentPageDataChange($event)"
       (nzPageIndexChange)="refreshStatus()"
       (nzPageSizeChange)="refreshStatus()">
       <thead>
         <tr>
           <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
-          <th>UID</th>
-          <th>遊戲暱稱</th>
-          <th>備註</th>
+          <th>順序</th>
+          <th>BOSS名稱</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let data of rowSelectionTable.data">
           <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus()"></td>
-          <td>{{data.ID}}</td>
+          <td>{{data.Order}}</td>
           <td>{{data.Name}}</td>
-          <td>{{data.Memo}}</td>
           <td>
-            <button nz-button nzType="primary" routerLink="/MemberDetail/{{data.MemberID}}">
+            <button nz-button nzType="primary" routerLink="/BossDetail/{{data.BossID}}">
               <i class="anticon anticon-edit"></i>修改</button>
           </td>
         </tr>

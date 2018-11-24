@@ -17,6 +17,13 @@
   </nz-form-item>  
 
   <nz-form-item>
+      <nz-form-label nzFor="Memo">備註</nz-form-label>
+      <nz-form-control>
+            <input nz-input [(ngModel)]="member.Memo" id="Memo">
+      </nz-form-control>
+  </nz-form-item>  
+
+  <nz-form-item>
         <nz-form-control>
               <button nz-button nzType="primary" (click)="Save()" style="float: right;"><i class="anticon anticon-save"></i>儲存</button>
         </nz-form-control>

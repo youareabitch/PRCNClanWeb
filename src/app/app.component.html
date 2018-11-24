@@ -1,10 +1,11 @@
 <nz-spin [nzSpinning]="isSpinning" nzTip='Loading...'>
 <nz-layout class="layout">
-  <nz-header style="position:fixed; width:100%">
-    <div class="logo"></div>
+  <nz-header style="position:fixed; z-index: 10000; width:100%">
+    <div class="logo">
+    </div>
     <ul nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
       <li nz-menu-item [(nzSelected)]="isMemberManage" routerLink="MemberManage">戰隊成員維護</li>
-      <li nz-menu-item [nzSelected]="isBossManage">戰隊王維護</li>
+      <li nz-menu-item [nzSelected]="isBossManage" routerLink="BossManage">戰隊王維護</li>
       <li nz-menu-item [nzSelected]="isAttackRecordManage">出刀記錄維護</li>
     </ul>
   </nz-header>

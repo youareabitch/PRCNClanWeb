@@ -1,31 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { MemberService } from '../Service/member-service';
 import { SpinService } from '../Service/spin-service';
 import { NzMessageService } from 'ng-zorro-antd';
-import { MemberVM } from '../Model/member-vm';
+import { BossVM } from '../Model/boss-vm';
+import { BossServiceService } from '../Service/boss-service.service';
 
 @Component({
-  selector: 'app-member-manage',
-  templateUrl: './member-manage.component.html',
-  styleUrls: ['./member-manage.component.css']
+  selector: 'app-boss-manage',
+  templateUrl: './boss-manage.component.html',
+  styleUrls: ['./boss-manage.component.css']
 })
-export class MemberManageComponent implements OnInit  {
+export class BossManageComponent implements OnInit {
   isCheckedRow=false;
-  datas:Array<MemberVM>;
-  displayData: Array<MemberVM> = [];
+  datas:Array<BossVM>;
+  displayData: Array<BossVM> = [];
   allChecked = false;
   indeterminate = false;
   checkedNumber = 0;
-  searchString:string="";
 
-  constructor(private memberService:MemberService,
+  constructor(private bossService:BossServiceService,
               private spinService:SpinService,
-              private message: NzMessageService) {
-  }
+              private message: NzMessageService) { }
 
   ngOnInit() {
     this.spinService.Spin();
-    this.memberService.GetAllAM().subscribe(x=>{
+    this.bossService.GetAllAM().subscribe(x=>{
       if(x.result){
         this.datas=x.data;
       }else{
@@ -38,7 +36,7 @@ export class MemberManageComponent implements OnInit  {
     });
   }
 
-  currentPageDataChange($event: Array<MemberVM>): void {
+  currentPageDataChange($event: Array<BossVM>): void {
     this.displayData = $event;
   }
 
@@ -58,9 +56,9 @@ export class MemberManageComponent implements OnInit  {
 
   delete(){
     let ids:string[]=[];
-    this.datas.filter(x=>x.checked).forEach(x=>ids.push(x.MemberID));
+    this.datas.filter(x=>x.checked).forEach(x=>ids.push(x.BossID));
     this.spinService.Spin();
-    this.memberService.DeleteRange(ids).subscribe(x=>{
+    this.bossService.DeleteRange(ids).subscribe(x=>{
       if(x.result){
         this.message.success("刪除成功");
         this.datas=this.datas.filter(x=>!x.checked);

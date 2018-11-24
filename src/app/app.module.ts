@@ -11,6 +11,8 @@ import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { MemberManageComponent } from './member-manage/member-manage.component';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
+import { BossManageComponent } from './boss-manage/boss-manage.component';
+import { BossDetailComponent } from './boss-detail/boss-detail.component';
 
 registerLocaleData(zh);
 
@@ -18,7 +20,9 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     MemberManageComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    BossManageComponent,
+    BossDetailComponent
   ],
   imports: [
     BrowserModule,

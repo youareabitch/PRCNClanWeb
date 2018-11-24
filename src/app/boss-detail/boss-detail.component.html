@@ -1,0 +1,23 @@
+<nz-breadcrumb style="margin:16px 0;">
+  <nz-breadcrumb-item><button nz-button nzType="default" routerLink="/BossManage"><i class="anticon anticon-left"></i></button>BOSS基本資料</nz-breadcrumb-item>
+</nz-breadcrumb>
+
+  <nz-form-item>
+    <nz-form-label nzFor="YearMonth">順序</nz-form-label>
+    <nz-form-control>
+      <nz-input-number [(ngModel)]="boss.Order" [nzMin]="1" [nzMax]="5" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item>   
+
+  <nz-form-item>
+        <nz-form-label nzFor="Name">BOSS名稱</nz-form-label>
+        <nz-form-control>
+              <input nz-input [(ngModel)]="boss.Name" id="Name">
+        </nz-form-control>
+  </nz-form-item>  
+
+  <nz-form-item>
+        <nz-form-control>
+              <button nz-button nzType="primary" (click)="Save()" style="float: right;"><i class="anticon anticon-save"></i>儲存</button>
+        </nz-form-control>
+  </nz-form-item>
