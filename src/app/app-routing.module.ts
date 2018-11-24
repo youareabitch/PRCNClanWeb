@@ -4,6 +4,8 @@ import { MemberManageComponent } from './member-manage/member-manage.component';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { BossManageComponent } from './boss-manage/boss-manage.component';
 import { BossDetailComponent } from './boss-detail/boss-detail.component';
+import { AttackRecordManageComponent } from './attack-record-manage/attack-record-manage.component';
+import { AttackRecordDetailComponent } from './attack-record-detail/attack-record-detail.component';
 
 const routes: Routes = [
   {
@@ -21,8 +23,7 @@ const routes: Routes = [
   {
     path:'MemberDetail/:id',
     component:MemberDetailComponent
-  }
-  ,
+  },
   {
     path:'BossManage',
     component:BossManageComponent
@@ -34,6 +35,18 @@ const routes: Routes = [
   {
     path:'BossDetail/:id',
     component:BossDetailComponent
+  },
+  {
+    path:'AttackRecordManage',
+    component:AttackRecordManageComponent
+  },
+  {
+    path:'AttackRecordDetail',
+    component:AttackRecordDetailComponent
+  },
+  {
+    path:'AttackRecordDetail/:id',
+    component:AttackRecordDetailComponent
   }
 ];
 

@@ -16,6 +16,10 @@ export class BossServiceService extends Common {
     return this.client.get<ApiReturnModel>(this.apiHost+"api/Boss/GetAllAM");
   }
 
+  GetAllBM(){
+    return this.client.get<ApiReturnModel>(this.apiHost+"api/Boss/GetAllBM");
+  }
+
   GetByID(id:string){
     return this.client.get<ApiReturnModel>(this.apiHost+"api/Boss/GetByID/"+id);
   }

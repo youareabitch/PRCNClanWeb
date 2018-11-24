@@ -11,10 +11,14 @@ export class MemberService extends Common {
         super();
     }
 
-    GetAllAM(){
+      GetAllAM(){
         return this.client.get<ApiReturnModel>(this.apiHost+"api/Member/GetAllAM");
       }
     
+      GetAllBM(){
+        return this.client.get<ApiReturnModel>(this.apiHost+"api/Member/GetAllBM");
+      }
+
       GetByID(id:string){
         return this.client.get<ApiReturnModel>(this.apiHost+"api/Member/GetByID/"+id);
       }

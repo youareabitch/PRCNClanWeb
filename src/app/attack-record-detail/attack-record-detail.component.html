@@ -1,0 +1,62 @@
+<nz-breadcrumb style="margin:16px 0;">
+  <nz-breadcrumb-item><button nz-button nzType="default" routerLink="/AttackRecordManage"><i class="anticon anticon-left"></i></button>出刀基本資料</nz-breadcrumb-item>
+</nz-breadcrumb>
+
+  <nz-form-item>
+    <nz-form-label nzFor="MemberID">出刀成員</nz-form-label>
+    <nz-form-control>
+      <nz-select style="width: 600px;" nzShowSearch nzPlaceHolder="選擇戰隊成員" [(ngModel)]="attackRecord.MemberID">
+        <nz-option *ngFor="let item of memberData" nzLabel="{{item.ID}} {{item.Name}}" nzValue="{{item.MemberID}}"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>   
+
+  <nz-form-item>
+        <nz-form-label nzFor="AttackDate">出刀日期</nz-form-label>
+        <nz-form-control>
+              <nz-date-picker [(ngModel)]="attackRecord.AttackDate"></nz-date-picker>
+        </nz-form-control>
+  </nz-form-item>  
+
+  <nz-form-item>
+    <nz-form-label nzFor="Round">周回</nz-form-label>
+    <nz-form-control>
+          <nz-input-number [(ngModel)]="attackRecord.Round" [nzMin]="1" [nzMax]="2" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item> 
+
+  <nz-form-item>
+    <nz-form-label nzFor="BossID">出刀Boss</nz-form-label>
+    <nz-form-control>
+          <nz-select style="width: 600px;" nzShowSearch nzPlaceHolder="選擇出刀Boss" [(ngModel)]="attackRecord.BossID">
+            <nz-option *ngFor="let item of bossData" nzLabel="{{item.Order}} {{item.Name}}" nzValue="{{item.BossID}}"></nz-option>
+          </nz-select>
+    </nz-form-control>
+  </nz-form-item> 
+
+  <nz-form-item>
+    <nz-form-label nzFor="Damage">傷害</nz-form-label>
+    <nz-form-control>
+      <nz-input-number style="width: 600px;" [(ngModel)]="attackRecord.Damage" [nzMin]="1" [nzStep]="1"></nz-input-number>
+    </nz-form-control>
+  </nz-form-item> 
+
+  <nz-form-item>
+    <nz-form-label nzFor="IsKillSteal">是否尾刀</nz-form-label>
+    <nz-form-control>
+      <label nz-checkbox [(ngModel)]="attackRecord.IsKillSteal">勾選為true不勾為false</label>
+    </nz-form-control>
+  </nz-form-item> 
+
+  <nz-form-item>
+    <nz-form-label nzFor="Memo">備註</nz-form-label>
+    <nz-form-control>
+              <input nz-input [(ngModel)]="attackRecord.Memo" id="Memo">
+    </nz-form-control>
+  </nz-form-item> 
+
+  <nz-form-item>
+        <nz-form-control>
+              <button nz-button nzType="primary" (click)="Save()" style="float: right;"><i class="anticon anticon-save"></i>儲存</button>
+        </nz-form-control>
+  </nz-form-item>

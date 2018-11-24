@@ -1,0 +1,44 @@
+<h1>出刀紀錄維護</h1>
+
+<button nz-button nzType="primary" routerLink="/AttackRecordDetail"><i class="anticon anticon-plus-square"></i>新增</button>
+<button nz-button [disabled]="!isCheckedRow" [nzType]="'danger'" (click)="delete()"><i nz-icon type="delete" theme="outline"></i>刪除</button>
+
+<nz-table
+      #rowSelectionTable
+      [nzData]="datas"
+      [nzPageSize]="30"
+      (nzCurrentPageDataChange)="currentPageDataChange($event)"
+      (nzPageIndexChange)="refreshStatus()"
+      (nzPageSizeChange)="refreshStatus()">
+      <thead>
+        <tr>
+          <th nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate" (nzCheckedChange)="checkAll($event)"></th>
+          <th>UID</th>
+          <th>玩家名稱</th>
+          <th>出刀日期</th>
+          <th>周回</th>
+          <th>王</th>
+          <th>傷害</th>
+          <th>是否尾刀</th>
+          <th>備註</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of rowSelectionTable.data">
+          <td nzShowCheckbox [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus()"></td>
+          <td>{{data.MemberName}}</td>
+          <td>{{data.MemberID}}</td>
+          <td>{{data.AttackDate}}</td>
+          <td>{{data.Round}}</td>
+          <td>{{data.BossName}}</td>
+          <td>{{data.Damage}}</td>
+          <td>{{data.IsKillSteal}}</td>
+          <td>{{data.Memo}}</td>
+          <td>
+            <button nz-button nzType="primary" routerLink="/AttackRecordDetail/{{data.AttackRecordID}}">
+              <i class="anticon anticon-edit"></i>修改</button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>

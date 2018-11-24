@@ -13,6 +13,8 @@ import { MemberManageComponent } from './member-manage/member-manage.component';
 import { MemberDetailComponent } from './member-detail/member-detail.component';
 import { BossManageComponent } from './boss-manage/boss-manage.component';
 import { BossDetailComponent } from './boss-detail/boss-detail.component';
+import { AttackRecordManageComponent } from './attack-record-manage/attack-record-manage.component';
+import { AttackRecordDetailComponent } from './attack-record-detail/attack-record-detail.component';
 
 registerLocaleData(zh);
 
@@ -22,7 +24,9 @@ registerLocaleData(zh);
     MemberManageComponent,
     MemberDetailComponent,
     BossManageComponent,
-    BossDetailComponent
+    BossDetailComponent,
+    AttackRecordManageComponent,
+    AttackRecordDetailComponent
   ],
   imports: [
     BrowserModule,
