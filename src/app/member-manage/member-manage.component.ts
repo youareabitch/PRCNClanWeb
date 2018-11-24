@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MemberBM } from '../Model/member-bm';
 import { MemberService } from '../Service/member-service';
 import { SpinService } from '../Service/spin-service';
 import { NzMessageService } from 'ng-zorro-antd';
+import { MemberVM } from '../Model/member-vm';
 
 @Component({
   selector: 'app-member-manage',
@@ -11,8 +11,8 @@ import { NzMessageService } from 'ng-zorro-antd';
 })
 export class MemberManageComponent implements OnInit  {
   isCheckedRow=false;
-  datas:Array<{MemberID:string; Name: string; ID: string; checked: boolean}>;
-  displayData: Array<{ MemberID: string; Name: string; ID: string; checked: boolean }> = [];
+  datas:Array<MemberVM>;
+  displayData: Array<MemberVM> = [];
   allChecked = false;
   indeterminate = false;
   checkedNumber = 0;
@@ -37,7 +37,7 @@ export class MemberManageComponent implements OnInit  {
     });
   }
 
-  currentPageDataChange($event: Array<{ MemberID: string; Name: string; ID: string; checked: boolean }>): void {
+  currentPageDataChange($event: Array<MemberVM>): void {
     this.displayData = $event;
   }
 
@@ -53,5 +53,25 @@ export class MemberManageComponent implements OnInit  {
   checkAll(value: boolean): void {
     this.displayData.forEach(data => data.checked = value);
     this.refreshStatus();
+  }
+
+  delete(){
+    let ids:string[]=[];
+    this.datas.filter(x=>x.checked).forEach(x=>ids.push(x.MemberID));
+    this.spinService.Spin();
+    this.memberService.DeleteRange(ids).subscribe(x=>{
+      if(x.result){
+        this.message.success("刪除成功");
+        this.datas=this.datas.filter(x=>!x.checked);
+        this.displayData=this.datas;
+        this.refreshStatus();
+      }else{
+        this.message.error(x.message);
+      }
+      this.spinService.UnSpin();
+    },error=>{
+      this.message.error(error.message);
+      this.spinService.UnSpin();
+    });
   }
 }

@@ -27,7 +27,7 @@ export class MemberService extends Common {
         return this.client.put<ApiReturnModel>(this.apiHost+"api/Member/Edit/",bm);
       }
     
-      Delete(id:string){
-        return this.client.delete<ApiReturnModel>(this.apiHost+"api/Member/Delete/"+id);
+      DeleteRange(ids:string[]){
+        return this.client.post<ApiReturnModel>(this.apiHost+"api/Member/DeleteRange/",ids);
       }
 }

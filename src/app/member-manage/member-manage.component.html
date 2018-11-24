@@ -1,7 +1,7 @@
 <h1>戰隊成員維護</h1>
 
 <button nz-button nzType="primary" routerLink="/MemberDetail"><i class="anticon anticon-plus-square"></i>新增</button>
-<button nz-button [disabled]="!isCheckedRow" [nzType]="'danger'" ><i nz-icon type="delete" theme="outline"></i>刪除</button>
+<button nz-button [disabled]="!isCheckedRow" [nzType]="'danger'" (click)="delete()"><i nz-icon type="delete" theme="outline"></i>刪除</button>
 
 <nz-table
       #rowSelectionTable
