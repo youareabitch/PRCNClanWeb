@@ -15,6 +15,7 @@ import { BossManageComponent } from './boss-manage/boss-manage.component';
 import { BossDetailComponent } from './boss-detail/boss-detail.component';
 import { AttackRecordManageComponent } from './attack-record-manage/attack-record-manage.component';
 import { AttackRecordDetailComponent } from './attack-record-detail/attack-record-detail.component';
+import { ForTestComponent } from './for-test/for-test.component';
 
 registerLocaleData(zh);
 
@@ -26,7 +27,8 @@ registerLocaleData(zh);
     BossManageComponent,
     BossDetailComponent,
     AttackRecordManageComponent,
-    AttackRecordDetailComponent
+    AttackRecordDetailComponent,
+    ForTestComponent
   ],
   imports: [
     BrowserModule,
